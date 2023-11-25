@@ -1,6 +1,5 @@
 import logging
 from sqlalchemy import select
-from sqlalchemy.orm import Session
 from sqlalchemy.engine import Engine
 from contextlib import contextmanager
 from sqlalchemy.orm import sessionmaker
