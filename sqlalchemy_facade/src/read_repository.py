@@ -1,9 +1,10 @@
 import logging
-from sqlalchemy.orm import sessionmaker
-from contextlib import contextmanager
 from sqlalchemy import select
-from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session
+from sqlalchemy.engine import Engine
+from contextlib import contextmanager
+from sqlalchemy.orm import sessionmaker
+
 
 logger = logging.getLogger(__name__)
 

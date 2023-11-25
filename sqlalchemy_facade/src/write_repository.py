@@ -1,9 +1,9 @@
 import logging
 from sqlalchemy.future import select
-from sqlalchemy.orm import sessionmaker
-from contextlib import contextmanager
-from sqlalchemy.sql.expression import delete
 from sqlalchemy.engine import Engine
+from contextlib import contextmanager
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql.expression import delete
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy_facade.src.declarative_base import Entity
 

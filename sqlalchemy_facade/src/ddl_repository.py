@@ -1,7 +1,6 @@
 from typing import List
-from sqlalchemy.schema import Sequence
 from sqlalchemy.engine import Engine
-from sqlalchemy.orm import Session
+from sqlalchemy.schema import Sequence
 from sqlalchemy_facade.src.declarative_base import Entity
 from sqlalchemy.schema import CreateSchema, CreateSequence
 
