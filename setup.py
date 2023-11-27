@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 setup(
     name="sqlalchemy_facade",
     packages=find_packages(),
-    version="2.0.23",
+    version="2.0.0",
     license="MIT",
     description="",
     author="Uzair Ahmed Mughal",
