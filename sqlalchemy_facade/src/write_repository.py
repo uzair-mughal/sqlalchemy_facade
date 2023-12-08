@@ -9,6 +9,7 @@ from sqlalchemy_facade.src.declarative_base import Entity
 
 logger = logging.getLogger(__name__)
 
+
 class WriteRepository:
     def __init__(self, engine: Engine):
         self.__engine = engine
@@ -100,6 +101,22 @@ class WriteRepository:
             query = insert(entity.__table__, properties).on_conflict_do_nothing()
             session.execute(query)
             session.flush()
+
+    def insert_ignore_get_id(self, entity: Entity):
+        with self.session() as session:
+            properties = entity.__dict__.copy()
+            properties.pop("_sa_instance_state")
+
+            query = insert(entity.__table__, properties).on_conflict_do_nothing()
+            result = session.execute(query)
+            session.flush()
+
+            if result.inserted_primary_key:
+                return result.inserted_primary_key[0]
+            else:
+                non_timestamp_properties = {k: v for k, v in properties.items() if type(v) in [str, int, float, bool]}
+                result = session.execute(select(entity.__table__).filter_by(**non_timestamp_properties))
+                return result.fetchone()[0]
 
     def bulk_insert(self, rows):
         """
