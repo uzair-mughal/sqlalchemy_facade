@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 setup(
     name="sqlalchemy_facade",
     packages=find_packages(),
-    version="2.0.0",
+    version="1.4.1",
     license="MIT",
     description="",
     author="Uzair Ahmed Mughal",
@@ -13,7 +13,7 @@ setup(
     url="",
     download_url="",
     keywords=["SQLAlchemy"],
-    install_requires=["sqlalchemy==2.*"],
+    install_requires=["sqlalchemy==1.4.*"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
