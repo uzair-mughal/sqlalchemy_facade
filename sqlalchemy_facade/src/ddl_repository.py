@@ -21,13 +21,16 @@ class DDLRepository:
                 except Exception:
                     pass
 
-    def create_tables(self):
+    def create_tables(self, DrivedEntity=None):
         """
         Creates tables. Tables of all models that are inherited from Entity will be created.
         """
-
-        with self.__engine.begin() as connection:
-            Entity.metadata.create_all(connection)
+        if DrivedEntity:
+            with self.__engine.begin() as connection:
+                DrivedEntity.metadata.create_all(connection)
+        else:
+            with self.__engine.begin() as connection:
+                Entity.metadata.create_all(connection)
 
     def drop_tables(self):
         """
